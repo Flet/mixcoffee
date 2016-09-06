@@ -29,6 +29,7 @@ function massage (data) {
   var massaged = {
     balance: data[data.length - 1].balance,
     topContributors: calcTopContributors(data),
+    lifetimeTopContributors: calcLifetimeTopContributors(data),
     recentCoffees: calcRecentCoffees(data)
   };
   massaged.latestCoffee = massaged.recentCoffees[0];
@@ -58,6 +59,30 @@ function calcTopContributors (data) {
   var thirdayDaysAgo = new Date(today - (30 * 86400000));
   var top = data
     .filter(d => new Date(d.day).getTime() > thirdayDaysAgo)
+    .filter(d => d.contributor !== 'COFFEE')
+    .reduce((p, c) => {
+      var val = Number(c.amount.replace('$', ''));
+      if (!p[c.contributor]) p[c.contributor] = Number(0);
+      p[c.contributor] = p[c.contributor] + val;
+      return p;
+    }, {});
+
+  var contributors = Object.keys(top).map(k => {
+    return {
+      contributor: k,
+      amount: '$' + top[k].toFixed(2),
+      amt: top[k]
+    };
+  })
+  .sort((a, b) => a.amt < b.amt);
+
+  return contributors;
+}
+
+function calcLifetimeTopContributors (data) {
+  // top contributors for life
+  var today = new Date().getTime();
+  var top = data
     .filter(d => d.contributor !== 'COFFEE')
     .reduce((p, c) => {
       var val = Number(c.amount.replace('$', ''));
