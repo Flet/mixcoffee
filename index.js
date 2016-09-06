@@ -2,6 +2,9 @@ var express = require('express');
 var cors = require('cors');
 var app = express();
 var Gsr = require('google-spreadsheet-reader');
+
+if (!process.env.GOOGLE_SPREADSHEET_ID) throw new Error('env var GOOGLE_SPREADSHEET_ID not found!')
+
 var spreadSheet = new Gsr(process.env.GOOGLE_SPREADSHEET_ID);
 
 app.use(cors());
@@ -11,7 +14,9 @@ app.get('/api/summary', function (req, res, next) {
     .then(function (data) {
       return res.json(massage(data.coffeefund));
     })
-    .catch(function (err) { console.error(err.message); });
+    .catch(function (err) {
+      return next(err);
+    });
 });
 
 app.use('/', express.static('static'));
