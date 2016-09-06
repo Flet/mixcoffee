@@ -1,6 +1,6 @@
 {
   "name": "mixcoffee",
-  "description": "easy way to get mix coffee data",
+  "description": "Dashboard and API for tracking coffee fund",
   "version": "1.0.0",
   "author": "Dan Flettre <dan.flettre@bestbuy.com>",
   "bugs": {
