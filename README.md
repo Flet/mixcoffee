@@ -20,6 +20,8 @@ npm Install
 GOOGLE_SPREADSHEEET_ID=my-spreadsheet-id npm start
 ```
 
+Once the app is up and running, just add values to the spreadsheet via Google Docs and they will be pulled in automatically!
+
 ## Google Spreadsheet format
 The app expects these columns:
 
