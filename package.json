@@ -1,0 +1,31 @@
+{
+  "name": "mixcoffee",
+  "description": "easy way to get mix coffee data",
+  "version": "1.0.0",
+  "author": "Dan Flettre <dan.flettre@bestbuy.com>",
+  "bugs": {
+    "url": "https://github.com/Flet/mixcoffee/issues"
+  },
+  "devDependencies": {
+    "tap-spec": "^4.0.2",
+    "tape": "^4.0.0"
+  },
+  "homepage": "https://github.com/Flet/mixcoffee",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Flet/mixcoffee.git"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "tape test/*.js | tap-spec",
+    "deploy": "now -e GOOGLE_SPREADSHEET_ID=@coffee-spreadsheet-id"
+  },
+  "dependencies": {
+    "cors": "^2.7.1",
+    "express": "^4.14.0",
+    "google-spreadsheet-reader": "^0.2.0"
+  }
+}
