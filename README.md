@@ -57,6 +57,8 @@ GOOGLE_SPREADSHEET_ID=put-your-spreadsheet-id-here
 ```
 - Thats it! Click "Show Live" to visit the site
 
+To update to the latest code version, just re-import the same project again. The `env` file will be retained between imports, so there is no need to update it again.
+
 
 ### Deploying to Now
 This project has built in scripts for [now.sh](https://zeit.co/now) deployment. The deploy script assumes there is a `now secret` called `@coffee-spreadsheet-url`.
