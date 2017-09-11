@@ -74,7 +74,7 @@ function calcTopContributors (data) {
       amt: top[k]
     }
   })
-  .sort((a, b) => a.amt < b.amt)
+  .sort((a, b) => b.amt - a.amt)
 
   return contributors
 }
@@ -97,7 +97,7 @@ function calcLifetimeTopContributors (data) {
       amt: top[k]
     }
   })
-  .sort((a, b) => a.amt < b.amt)
+  .sort((a, b) => b.amt - a.amt)
 
   return contributors
 }
