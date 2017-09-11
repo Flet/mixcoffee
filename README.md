@@ -1,6 +1,6 @@
 # mixcoffee
 
-Dahsboard and API for our friendly neighborhood coffee fund.
+Dashboard and API for our friendly neighborhood coffee fund.
 
 ## Install
 
@@ -40,7 +40,26 @@ The app expects these columns:
 
 
 ## Deploying
-We're using `now.sh` for deployment. The deploy script assumes there is a `now secret` called `@coffee-spreadsheet-url`.
+
+## Deploying to Glitch
+[glitch.com](https://glitch.com) is a great place to host an instance of this project.
+
+Here are the steps:
+- Create a new project
+- Click the project name in the top left and choose Advanced Options
+- Click "Grant access to import and export to a repo" and go through the steps to link your GitHub account
+- Once thats done, click the "Import from Github" button
+- In the text prompt, type **Flet/mixcoffee**
+- Once the project is imported, click on the **env** file on the left
+- Add this entry:
+```bash
+GOOGLE_SPREADSHEET_ID=put-your-spreadsheet-id-here
+```
+- Thats it! Click "Show Live" to visit the site
+
+
+### Deploying to Now
+This project has built in scripts for [now.sh](https://zeit.co/now) deployment. The deploy script assumes there is a `now secret` called `@coffee-spreadsheet-url`.
 
 Run these commands one time to setup the secret:
 ```bash
@@ -55,7 +74,7 @@ npm run deploy
 Once the deploy is done and looks good, update the `now alias` to update production:
 
 ```bash
-now alias set https://mixcoffee-qwertyuiop.now.sh custom-url.com
+now alias set https://mixcoffee-qwertyuiop.now.sh coffeefund.now.sh
 ```
 
 ## License
