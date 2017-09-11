@@ -41,7 +41,7 @@ The app expects these columns:
 
 ## Deploying
 
-## Deploying to Glitch
+### Deploying to Glitch
 [glitch.com](https://glitch.com) is a great place to host an instance of this project.
 
 Here are the steps:
