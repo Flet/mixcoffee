@@ -59,7 +59,7 @@ function calcTopContributors (data) {
   var thirdayDaysAgo = new Date(today - (30 * 86400000))
   var top = data
     .filter(d => new Date(d.day).getTime() > thirdayDaysAgo)
-    .filter(d => d.contributor !== 'COFFEE')
+    .filter(d => d.contributor !== 'COFFEE' && d.contributor !== 'SUPPLIES')
     .reduce((p, c) => {
       var val = Number(c.amount.replace('$', ''))
       if (!p[c.contributor]) p[c.contributor] = Number(0)
